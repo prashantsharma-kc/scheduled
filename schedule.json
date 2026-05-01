@@ -9,5 +9,14 @@
       "timezone": "Asia/Kolkata",
       "notes": "Sources: Gmail, Slack, Confluence, Jenkins (kc/* jobs only), GitHub (kc-* repos only). ArgoCD excluded."
     }
+  ,
+    {
+      "id": "cowork-daily-brief",
+      "description": "Cowork daily brief — emails, followups, urgent/due-date items, and long-pending items sent to Slack",
+      "prompt": "Review my pending items and compile a cowork daily brief. Check the following sources:\n\n1. **Gmail** — Search for:\n   - Unread emails or threads needing a reply (last 5 days)\n   - Emails flagged/starred or marked important\n   - Anything with urgency, deadlines, action items, or follow-up requests directed at me\n   - Emails with due dates or reminders approaching within the next 3 days\n   - Long-pending threads with no reply for more than 5 days\n\n2. **Slack** — Search for:\n   - Direct messages sent to me that may need a reply (last 5 days)\n   - Messages mentioning urgency, deadlines, follow-ups, or action items addressed to me\n   - Threads where I asked a question or made a request but have NOT received a reply yet\n   - Long-pending threads (more than 3 days old with no resolution)\n\n3. **GitHub** — Check for open PRs and issues ONLY in repositories prefixed with 'kc-' (KwikChat repos):\n   - PRs awaiting my review\n   - PRs I raised that are still open / need attention\n   - Issues assigned to me or where I'm mentioned\n   - Items that have been open for more than 7 days without activity\n\nOnce all sources are checked, compile and send a Slack DM to U06MHDGLGLC (prashant.sharma@gokwik.co) using this exact format:\n\n*Cowork Daily Brief — {date}*\n\n*GMAIL*\nNeeds reply:\n- <url|Sender Name (date/time)> — brief summary — urgency\n\nNearing due date:\n- <url|Sender Name (date/time)> — brief summary — due date\n\nLong pending (no reply 5+ days):\n- <url|Sender Name (date/time)> — brief summary — pending since\n\n*SLACK*\nNeeds your reply:\n- <slack_thread_url|Person Name (date/time)> — brief summary\n\nWaiting on someone:\n- <slack_thread_url|Person Name> — what you asked, waiting since when\n\nLong pending:\n- <slack_thread_url|Person Name (date/time)> — brief summary — pending since\n\n*GITHUB*\nNeeds your attention:\n- <github_url|Repo/PR Title> — what needs attention — open since\n\nRules:\n- Every item MUST have a clickable link using Slack format <url|text>\n- Skip any source section or sub-section entirely if there is nothing to report\n- Sort items within each section by urgency (most urgent first)\n- Keep each item to one line",
+      "schedule": "0 9 * * 1-5",
+      "timezone": "Asia/Kolkata",
+      "notes": "Sources: Gmail, Slack, GitHub (kc-* repos only). Covers followups, urgent/due-date items, and long-pending items. Runs 9:00 AM IST on weekdays."
+    }
   ]
 }
